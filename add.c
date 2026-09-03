@@ -1,13 +1,5 @@
 #include "student.h"
 
-/*
-[DONE]Create a new node dynamically using malloc().
-[DONE]Assign the smallest positive integer that is not already used as the roll number. The roll number must be unique.
-[DONE]Ask the user to enter the student's name and percentage.
-[DONE]Insert the new node into the singly linked list.
-        Example: If roll numbers 1, 2, 4 and 5 are present, the next roll number should be 3
-*/
-
 void add_record(STU ** ptr){
         //Create a new node dynamically using malloc().
         STU * new=malloc(sizeof(STU)),*node;
@@ -27,9 +19,16 @@ void add_record(STU ** ptr){
         }
         new->rollno=roll;
 
-        //Ask the user to enter the student's name and percentage.
-        printf("Enter student's name and percentage : ");
-        scanf(" %s %f",new->name,&new->percentage);
+        //Ask the user to enter the student's name and percentage(between 0 to 100).
+        while(1){
+                printf("Enter student's name and percentage : ");
+                scanf(" %s %f",new->name,&new->percentage);
+
+                if((new->percentage >= 0) && (new->percentage <= 100))
+                        break;
+
+                printf("\033[31mInvalid percentage\033[0m\n");
+        }
 
         //Insert the new node into the singly linked list.
         if(!*ptr || ((*ptr)->rollno > new->rollno)){
@@ -43,4 +42,6 @@ void add_record(STU ** ptr){
                 new->next=node->next;
                 node->next=new;
         }
+
+        printf("\033[32mRecord added successfully!\033[0m\n");
 }

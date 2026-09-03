@@ -3,10 +3,13 @@
 STU * headptr=0;
 
 int main(){
+        printf("a");
         char op;
 
+        read_record(&headptr);
+
         while(1){
-                printf("\033[34mChoose an option : \n");
+                printf("\033[36mChoose an option : \n");
                 printf("a/A : Add a new record\n");
                 printf("d/D : Delete a record\n");
                 printf("s/S : Show the list\n");
@@ -26,13 +29,13 @@ int main(){
                         case 's':
                         case 'S': show_list(headptr);break;
                         case 'm':
-                        case 'M': modify_record(&headptr);break;
+                        case 'M': modify_record(headptr);break;
                         case 'v':
                         case 'V': save_record(headptr);break;
                         case 'e':
                         case 'E': exit(0);
                         case 't':
-                        case 'T': sort_list(&headptr);break;
+                        case 'T': sort_list(headptr);break;
                         case 'l':
                         case 'L': delete_all(&headptr);break;
                         case 'r':
