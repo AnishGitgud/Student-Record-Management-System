@@ -1,4 +1,4 @@
-## STUDENT RECORD MANAGEMENT SYSTEM
+# STUDENT RECORD MANAGEMENT SYSTEM
 
 A student record database for managing a list of sudent details.
 
@@ -12,10 +12,9 @@ To run executable
 ./student
 ```
 
-# Functionality summary
+## Functionality summary
 ```
-Option
-Required Functionality
+Option and Required Functionality
 a/A: Add a new dynamically allocated student record.
 d/D: Delete by roll number or name.
 s/S: Display the complete list in tabular form.
